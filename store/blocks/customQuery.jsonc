@@ -1,0 +1,106 @@
+{
+    "search-result-layout.customQuery#home": {
+        "props": {
+          "querySchema": {
+            "skusFilter": "FIRST_AVAILABLE",
+            "simulationBehavior": "skip",
+            "maxItemsPerPage": 12
+          }
+        },
+        "blocks": [
+          "search-result-layout.desktop#lp",
+          "search-result-layout.mobile"
+        ]
+      },
+      "search-result-layout.desktop#lp": {
+        "children": [
+          // "flex-layout.row#searchbread",
+          // "flex-layout.row#searchtitle",
+          "flex-layout.row#result"
+        ],
+        "props": {
+          "preventRouteChange": true
+        }
+      },
+      "flex-layout.row#result": {
+        "children": [
+          "search-content#lp"
+        ]
+      },
+      "search-content#lp": {
+        "blocks": [
+          "gallery#lp",
+          "not-found"
+        ]
+      },
+      "gallery#lp": {
+        "props": {
+          "layouts": [
+            {
+              "name": "grid",
+              "component": "GridSummary",
+              "itemsPerRow": {
+                "(min-width:1300px)": 4,
+                "desktop": 3,
+                "tablet": 3,
+                "phone": 2
+              }
+            },
+            {
+              "name": "list",
+              "component": "ListSummary",
+              "itemsPerRow": 1
+            }
+          ],
+          "ListSummary": "product-summary.shelf#lp",
+          "GridSummary": "product-summary.shelf#lp"
+        }
+      },
+      "product-summary.shelf#lp": {
+        "children": [
+          "product-summary-name",
+          "product-images#lp",
+          "vtex.product-highlights@2.x:product-highlights#1",
+          "vtex.product-highlights@2.x:product-highlights#2",
+          "product-summary-price",
+          "add-to-cart-button#lp"
+        ],
+        "props": {
+          "blockClass": [
+            "aoba",
+            "teste"
+          ]
+        }
+      },
+      "product-images#lp": {
+        "props": {
+          "showNavigationArrows": true,
+          "showPaginationDots": true
+        }
+      },
+      "vtex.product-highlights@2.x:product-highlights#1": {
+        "children": [
+          "product-highlight-text#1"
+        ]
+      },
+      "vtex.product-highlights@2.x:product-highlights#2": {
+        "children": [
+          "product-highlight-text#2"
+        ]
+      },
+      "product-highlight-text#1": {
+        "props": {
+          "message": "PRÉ-LANÇAMENTO"
+        }
+      },
+      "product-highlight-text#2": {
+        "props": {
+          "message": "VALIDAÇÃO A PARTIR DE 09/10/2021"
+        }
+      },
+      "add-to-cart-button#lp": {
+        "props": {
+          "onClickBehavior": "go-to-product-page"
+        }
+      }
+}
